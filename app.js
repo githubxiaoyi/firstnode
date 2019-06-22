@@ -1,10 +1,11 @@
 //var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-//var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser');
 //var logger = require('morgan');
 var session=require('express-session');
-var config=require('config-lite')(__dirname);
+//var config=require('config-lite')(__dirname);
+var config=require('./config/default');
 var MongoStore=require('connect-mongo')(session);
 var flash=require('connect-flash');
 var pkg=require('./package');
@@ -47,3 +48,5 @@ routes(app);
 app.listen(config.port,function () {
     console.log('${pkg.name} listening on port ${config.port}');
 })
+
+module.exports=app;

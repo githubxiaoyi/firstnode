@@ -8,4 +8,4 @@ router.post('/',checkLogin,function (req,res,next) {
 router.get('/:commentId/remove',checkLogin,function (req,res,next) {
     res.send('删除留言');
 })
-module.express=router;
+module.exports=router;
