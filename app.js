@@ -39,14 +39,28 @@ app.use(session({
     })
 }));
 app.use(flash());
+//处理表单及文件上传的中间件
+app.use(require('express-formidable')({
+    upload:path.join(__dirname,'public/img'),//上传文件目录
+    keepExtensions:true//保留后缀
+}))
+
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
+//设置模板全局变量
+app.locals.bolg={
+    title:pkg.name,
+    description:pkg.description
+}
+//添加模板必须的三个变量
+app.use(function (req,res,next) {
+    res.locals.user=req.session.user
+    res.locals.success=req.flash('success').toString()
+    res.locals.error=req.flash('error').toString()
+    next()
+})
 
 routes(app);
-
-app.listen(config.port,function () {
-    console.log('${pkg.name} listening on port ${config.port}');
-})
 
 module.exports=app;
