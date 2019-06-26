@@ -4,7 +4,11 @@ var router=express.Router();
 var checkLogin=require('../middlewares/check').checkLogin;
 
 router.get('/',function (req,res,next) {
-    res.send('主页');
+    res.render('posts',{
+        blog:{
+            title:'posts'
+        }
+    });
 })
 
 router.post('/create',checkLogin,function (req,res,next) {
