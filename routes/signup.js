@@ -19,9 +19,9 @@ router.post('/',checkNotLogin,function (req,res,next) {
     var name=req.fields.name;
     var gender=req.fields.gender;
     var bio=req.fields.bio;
-    var avatar=req.fields.avatar.path.split(path.sep).pop();
+    var avatar=req.files.avatar.path.split(path.sep).pop();
     let password=req.fields.password;
-    var reqpassword=req.fields.repassword;
+    var repassword=req.fields.repassword;
 
     //效验参数
     try{

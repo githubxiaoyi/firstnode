@@ -29,3 +29,12 @@ mongolass.plugin('addCreateAt',{
 })
 
 exports.User.index({name:1},{unique:true}).exec() //根据用户名找到用户 用户名唯一
+
+exports.Post=mongolass.model('Post',{
+    author:{type:Mongolass.Types.ObjectId,require:true},
+    title:{type:'string',require:true},
+    content:{type:'string',require:true},
+    pv:{type:'number',default:0}
+})
+exports.Post.index({author:1,_id:-1}).exec()//按创建时间降序查询文章列表
+
