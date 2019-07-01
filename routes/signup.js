@@ -74,7 +74,7 @@ router.post('/',checkNotLogin,function (req,res,next) {
         })
         .catch(function (e) {
             //注册失败，异步删除上传头像
-            fs.unlink(req.files.avatar.path)
+            fs.unlink(req.files.avatar)
             //用户名被占用跳回注册页
             if(e.message.match('duplicate key')){
                 req.flash('error','用户名被占用')

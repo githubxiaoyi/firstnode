@@ -38,3 +38,9 @@ exports.Post=mongolass.model('Post',{
 })
 exports.Post.index({author:1,_id:-1}).exec()//按创建时间降序查询文章列表
 
+exports.Comment=mongolass.model('Comment',{
+    author:{type:Mongolass.Types.ObjectId,required:true},
+    content: {type:'string',required:true},
+    postId:{type:Mongolass.Types.ObjectId,required:true}
+})
+exports.Comment.index({postId:1,_id:1}).exec()
