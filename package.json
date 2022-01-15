@@ -17,7 +17,7 @@
     "express-formidable": "^1.2.0",
     "express-session": "^1.16.2",
     "http-errors": "~1.6.3",
-    "marked": "^0.6.2",
+    "marked": "^4.0.10",
     "moment": "^2.24.0",
     "mongod": "^2.0.0",
     "mongodb": "^3.2.7",
